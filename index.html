@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>食叶草肽猪 · 中科院技术 · 高端生态猪肉</title>
+    <meta name="description" content="源自中国科学院技术支持，300天生态慢养，零抗生素、零激素、零药物残留的高端健康猪肉">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FAF8F5',
+                        charcoal: '#1A1A1A',
+                        bronze: '#B08D57',
+                        bronzeLight: '#D4B896',
+                        bronzeDark: '#8B6914',
+                        sage: '#8A9A7B',
+                        cream: '#F5F1EB',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Noto Sans SC', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 40%, #2A2620 100%);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #B08D57 0%, #D4B896 50%, #B08D57 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tracking-widest { letter-spacing: 0.25em; }
+
+        /* 粒子背景 */
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(176, 141, 87, 0.3);
+            border-radius: 50%;
+        }
+
+        /* 高端卡片悬浮 */
+        .luxury-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .luxury-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* 文字动画 */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* 分隔线 */
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #B08D57, transparent);
+        }
+
+        /* 科学图谱效果 */
+        .tech-grid {
+            background-image:
+                linear-gradient(rgba(176,141,87,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(176,141,87,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* 浮动按钮 */
+        .float-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(176, 141, 87, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(176, 141, 87, 0); }
+        }
+
+        .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 20px); }
+
+        /* 引用样式 */
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            line-height: 1;
+            color: rgba(176,141,87,0.2);
+        }
+
+        /* 图片样式 */
+        .img-luxury {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 报告卡片 */
+        .report-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #FAFAFA 100%);
+            border: 1px solid rgba(176,141,87,0.15);
+        }
+
+        /* 检测徽章 */
+        .check-badge {
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+        }
+    </style>
+</head>
+<body class="font-body text-charcoal antialiased bg-ivory">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-bronze/10">
+        <div class="max-w-lg mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-bronze to-bronzeLight flex items-center justify-center">
+                    <span class="text-charcoal text-xs font-bold">CAS</span>
+                </div>
+                <span class="text-white font-display font-semibold tracking-wide">食叶草肽猪</span>
+            </div>
+            <a href="#contact" class="text-bronze text-sm font-medium border border-bronze/40 px-4 py-1.5 rounded-full hover:bg-bronze/10 transition-colors">
+                咨询订购
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-gradient overflow-hidden pt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.pexels.com/photos/7129415/pexels-photo-7129415.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80" alt="生态黑猪" class="img-luxury opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent"></div>
+        </div>
+
+        <div class="particles" id="particles"></div>
+
+        <div class="relative z-10 max-w-lg mx-auto px-8 py-16 text-center">
+            <div class="inline-flex items-center gap-3 mb-12 fade-up">
+                <div class="w-10 h-10 rounded-full border border-bronze/40 flex items-center justify-center">
+                    <span class="text-bronze text-xs font-bold">CAS</span>
+                </div>
+                <div class="text-left">
+                    <p class="text-bronze/80 text-xs tracking-widest uppercase">China Academy of Sciences</p>
+                    <p class="text-bronzeLight/80 text-xs">中国科学院技术授权</p>
+                </div>
+            </div>
+
+            <h1 class="font-display text-5xl md:text-6xl text-white font-bold mb-4 tracking-wide fade-up delay-100">
+                食叶草<span class="gold-text">肽猪</span>
+            </h1>
+
+            <p class="text-white/70 text-sm tracking-widest mb-6 fade-up delay-100">
+                高质量生态猪肉 · 安全 ● 营养 ● 美味
+            </p>
+
+            <p class="text-bronze/60 text-sm tracking-widest uppercase mb-8 fade-up delay-200">
+                Premium Scientific Pork
+            </p>
+
+            <div class="section-divider mx-auto mb-10 fade-up delay-200"></div>
+
+            <p class="text-white/60 text-base leading-relaxed mb-4 fade-up delay-300 max-w-md mx-auto">
+                当<span class="text-bronzeLight">生命科学</span>遇见<span class="text-bronzeLight">生态养殖</span>
+            </p>
+            <p class="text-white/40 text-sm leading-relaxed mb-12 fade-up delay-300 max-w-md mx-auto">
+                中国科学院遗传与发育生物学研究所技术支持<br>
+                胡赞民教授团队科研成果转化
+            </p>
+
+            <div class="grid grid-cols-3 gap-4 mb-14 fade-up delay-400">
+                <div class="text-center">
+                    <p class="font-display text-3xl font-bold gold-text">300<span class="text-lg">天</span></p>
+                    <p class="text-white/40 text-xs mt-1">生态慢养</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-display text-3xl font-bold gold-text">0</p>
+                    <p class="text-white/40 text-xs mt-1">抗生素</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-display text-3xl font-bold gold-text">18</p>
+                    <p class="text-white/40 text-xs mt-1">种氨基酸</p>
+                </div>
+            </div>
+
+            <a href="#core-tech" class="inline-block bg-gradient-to-r from-bronze to-bronzeLight text-charcoal font-semibold px-10 py-4 rounded-full hover:opacity-90 transition-all fade-up delay-500">
+                探索科技
+            </a>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-2">
+                <div class="w-0.5 h-2 bg-bronze rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 禁止抗生素 Section -->
+    <section class="py-24 px-8 bg-gradient-to-b from-charcoal to-charcoal/95 text-white relative overflow-hidden">
+        <div class="absolute inset-0 tech-grid"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-lg mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <p class="text-red-400/60 text-xs tracking-widest uppercase mb-3">No Antibiotics</p>
+                <h2 class="font-display text-3xl font-bold mb-4">禁止抗生素</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <!-- 警示数据 -->
+            <div class="bg-red-500/10 rounded-2xl p-6 mb-8 border border-red-500/20">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <span class="text-red-400 text-lg">⚠️</span>
+                    </div>
+                    <h3 class="text-red-400 font-display font-semibold">抗生素滥用 · 触目惊心</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="text-center p-3 bg-red-500/10 rounded-xl">
+                        <p class="font-display text-2xl font-bold text-red-400">70%</p>
+                        <p class="text-white/50 text-xs mt-1">全球抗生素用于养殖业</p>
+                    </div>
+                    <div class="text-center p-3 bg-red-500/10 rounded-xl">
+                        <p class="font-display text-2xl font-bold text-red-400">46%</p>
+                        <p class="text-white/50 text-xs mt-1">中国养殖业消耗占比</p>
+                    </div>
+                </div>
+                <p class="text-white/60 text-sm leading-relaxed">全球每年超70%抗生素用于养殖业，中国畜禽养殖抗生素使用量占全球28%。耐药性威胁：2025-2050年将有超3900万人直接死于抗生素耐药性感染。</p>
+            </div>
+
+            <!-- 危害说明 -->
+            <div class="space-y-4 mb-8">
+                <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                    <h4 class="text-bronzeLight font-medium mb-2">🔴 细菌耐药性</h4>
+                    <p class="text-white/50 text-sm">抗生素长期不合理使用，使细菌产生耐药基因，耐药菌可通过食品、污水等传播给人，常规抗生素治疗失效。</p>
+                </div>
+                <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                    <h4 class="text-bronzeLight font-medium mb-2">🔴 激素残留危害</h4>
+                    <p class="text-white/50 text-sm">肉制品中抗生素残留超标，破坏肠道菌群平衡，引发消化功能紊乱，可能诱发过敏反应。</p>
+                </div>
+                <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                    <h4 class="text-bronzeLight font-medium mb-2">🔴 环境生态污染</h4>
+                    <p class="text-white/50 text-sm">含抗生素的养殖废水、粪便进入土壤和水体，形成"养殖-环境-人类"污染循环。</p>
+                </div>
+            </div>
+
+            <!-- 中国禁抗进程 -->
+            <div class="bg-gradient-to-br from-bronze/20 to-sage/10 rounded-2xl p-6 border border-bronze/20">
+                <h4 class="text-bronzeLight font-semibold mb-4 text-center">中国禁抗进程</h4>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-bronze text-sm font-bold">2002</span>
+                        <p class="text-white/60 text-sm">发布《禁止在饲料和动物饮用水中使用的药物品种目录》</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-bronze text-sm font-bold">2005</span>
+                        <p class="text-white/60 text-sm">将29种抗生素列为禁用兽药</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-bronze text-sm font-bold">2019</span>
+                        <p class="text-white/60 text-sm">农业农村部第194号公告：2020年7月1日起全面停止使用含抗生素饲料添加剂</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三大核心技术 Section -->
+    <section id="core-tech" class="py-24 px-8 bg-ivory">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-bronze/60 text-xs tracking-widest uppercase mb-3">Core Technology</p>
+                <h2 class="font-display text-3xl font-bold text-charcoal mb-4">三大核心技术</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <!-- 中科肽 -->
+            <div class="bg-gradient-to-br from-charcoal to-charcoal/90 rounded-3xl p-8 mb-6 relative overflow-hidden">
+                <div class="absolute inset-0 tech-grid opacity-30"></div>
+                <div class="absolute top-0 right-0 w-40 h-40 bg-bronze/10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-2xl bg-bronze/20 flex items-center justify-center">
+                            <span class="text-2xl">🦠</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-display font-semibold text-xl">中科肽 · 益牧肽</h3>
+                            <p class="text-bronze/60 text-sm">中科院微生态制剂</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                            <p class="text-bronzeLight font-medium text-sm mb-2">中国科学院遗传与发育生物学研究所</p>
+                            <p class="text-white/50 text-xs leading-relaxed">研发的益牧肽，成为应对抗微生物药物耐药性危机的一大策略，其创新成果领跑全球。</p>
+                        </div>
+                        <p class="text-white/60 text-sm leading-relaxed">近年来，养殖业抗生素滥用已危及畜禽产品安全与人类健康。生物肽以其无毒无害无残留之特性，日益受到瞩目。</p>
+                        <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                            <p class="text-bronzeLight font-medium text-sm mb-2">益牧肽的研发意义重大</p>
+                            <p class="text-white/50 text-xs leading-relaxed">作为减少乃至替代抗生素的有效途径，前景广阔，对未来养殖业至关重要。它不仅承载着科技的光芒，更将为保障食品安全与人类健康贡献非凡力量。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 食叶草 -->
+            <div class="bg-white rounded-3xl p-8 mb-6 relative overflow-hidden border border-bronze/10">
+                <div class="absolute bottom-0 right-0 w-40 h-40 bg-sage/10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-2xl bg-sage/20 flex items-center justify-center">
+                            <span class="text-2xl">🌿</span>
+                        </div>
+                        <div>
+                            <h3 class="text-charcoal font-display font-semibold text-xl">食叶草</h3>
+                            <p class="text-charcoal/50 text-sm">蛋白草 · 长寿草 · 稀土之宝</p>
+                        </div>
+                    </div>
+                    <img src="images/食叶草.png" alt="食叶草" class="rounded-xl w-full h-48 object-contain mb-5">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="text-center p-3 bg-sage/10 rounded-xl">
+                            <p class="font-display text-2xl font-bold text-sage">36-48%</p>
+                            <p class="text-charcoal/50 text-xs mt-1">蛋白质含量</p>
+                        </div>
+                        <div class="text-center p-3 bg-sage/10 rounded-xl">
+                            <p class="font-display text-2xl font-bold text-sage">18+</p>
+                            <p class="text-charcoal/50 text-xs mt-1">种氨基酸</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-charcoal/60">
+                        <p>• 含维生素SOD、硒、钙、铁、锌等微量营养元素</p>
+                        <p>• 多年生宿根草本，一次种植多年收益</p>
+                        <p>• 以草代粮，降低饲料成本，提升肉质鲜美度</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BR生物菌 -->
+            <div class="bg-gradient-to-br from-charcoal to-charcoal/90 rounded-3xl p-8 relative overflow-hidden">
+                <div class="absolute inset-0 tech-grid opacity-30"></div>
+                <div class="absolute top-0 right-0 w-40 h-40 bg-sage/10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-2xl bg-sage/20 flex items-center justify-center">
+                            <span class="text-2xl">♻️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-display font-semibold text-xl">BR生物菌发酵床</h3>
+                            <p class="text-sage/80 text-sm">零排放 · 无污染 · 零臭味</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                            <p class="text-bronzeLight font-medium text-sm mb-2">国家发明专利技术</p>
+                            <p class="text-white/50 text-xs">猪粪原位分解为有机肥，无需清理粪便</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+                                <p class="font-display text-2xl font-bold gold-text">55%</p>
+                                <p class="text-white/40 text-xs mt-1">有机质含量</p>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+                                <p class="font-display text-2xl font-bold gold-text">89.5%</p>
+                                <p class="text-white/40 text-xs mt-1">种子发芽率</p>
+                            </div>
+                        </div>
+                        <p class="text-white/50 text-sm">反哺食叶草种植，实现 <span class="text-sage font-medium">零排放闭环</span>，可持续生态循环</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科研团队 Section -->
+    <section class="py-24 px-8 bg-charcoal relative overflow-hidden">
+        <div class="absolute inset-0 tech-grid"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-bronze/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-lg mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <p class="text-bronze/40 text-xs tracking-widest uppercase mb-3">Research Team</p>
+                <h2 class="font-display text-3xl font-bold text-white mb-4">中科院科研团队</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <!-- 团队图片 -->
+            <div class="mb-8 pt-4">
+                <img src="images/胡赞民科研团队.png" alt="胡赞民科研团队" class="rounded-2xl w-full" style="object-fit: contain; max-height: 280px;">
+            </div>
+
+            <!-- 团队信息 -->
+            <div class="bg-gradient-to-br from-charcoal to-charcoal/80 rounded-3xl p-8 mb-8 border border-bronze/10">
+                <div class="flex items-center gap-5 mb-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-bronze to-bronzeLight flex items-center justify-center flex-shrink-0">
+                        <span class="text-charcoal text-xl font-display font-bold">胡</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-display font-semibold text-lg">胡赞民 教授</h3>
+                        <p class="text-bronze/60 text-sm">中国科学院遗传与发育生物学研究所</p>
+                        <p class="text-white/40 text-xs mt-1">博士生导师 · 国务院特殊津贴专家</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 bg-bronze rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-white/60 text-sm">主要研究方向：生物活性肽、微生态制剂、动物营养代谢</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 bg-bronze rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-white/60 text-sm">主持国家"863"计划、国家自然科学基金等重点项目10余项</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 bg-bronze rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-white/60 text-sm">获国家发明专利20余项，发表SCI论文100余篇</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 bg-bronze rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-white/60 text-sm">获科技部"国家重大科技成果"转化项目支持</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 团队成就 -->
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">20+</p>
+                    <p class="text-white/40 text-xs mt-2">国家发明专利</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">100+</p>
+                    <p class="text-white/40 text-xs mt-2">SCI论文</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">10+</p>
+                    <p class="text-white/40 text-xs mt-2">国家重点课题</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 智慧养殖 Section -->
+    <section class="py-24 px-8 bg-ivory">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bronze/60 text-xs tracking-widest uppercase mb-3">Smart Farming</p>
+                <h2 class="font-display text-3xl font-bold text-charcoal mb-4">智慧养殖系统</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="bg-charcoal rounded-3xl p-8 mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 tech-grid"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-sage/20 flex items-center justify-center">
+                            <span class="text-sage text-lg">📊</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-display font-semibold">全程可溯源 · 数据不可篡改</h3>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <img src="images/监控1.png" alt="智慧养殖监控1" class="rounded-2xl w-full h-48 object-cover opacity-80">
+                        <img src="images/监控3.png" alt="智慧养殖监控3" class="rounded-2xl w-full h-48 object-cover opacity-80">
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                            <h4 class="text-bronzeLight font-medium mb-2">猪体档案 · 一猪一码</h4>
+                            <p class="text-white/50 text-sm">每头猪拥有唯一身份标识，记录品种、出生日期、饲料来源、用药情况、检疫信息等全生命周期数据。</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                            <h4 class="text-bronzeLight font-medium mb-2">实时监控 · AI预警</h4>
+                            <p class="text-white/50 text-sm">24小时环境监测，包括温度、湿度、氨气浓度等。异常情况即时预警，确保猪群健康。</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-5 border border-white/5">
+                            <h4 class="text-bronzeLight font-medium mb-2">全程透明可追溯</h4>
+                            <p class="text-white/50 text-sm">客户在购前购后均可实时查询猪体档案，安心选择，信任保障。从源头到餐桌，全程透明。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 智慧养殖流程 -->
+            <div class="grid grid-cols-4 gap-3">
+                <div class="text-center">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-bronze/10 rounded-full flex items-center justify-center">
+                        <span class="text-bronze text-sm font-bold">1</span>
+                    </div>
+                    <p class="text-charcoal/60 text-xs">入栏建档</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-bronze/10 rounded-full flex items-center justify-center">
+                        <span class="text-bronze text-sm font-bold">2</span>
+                    </div>
+                    <p class="text-charcoal/60 text-xs">日常监测</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-bronze/10 rounded-full flex items-center justify-center">
+                        <span class="text-bronze text-sm font-bold">3</span>
+                    </div>
+                    <p class="text-charcoal/60 text-xs">出栏检疫</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-bronze/10 rounded-full flex items-center justify-center">
+                        <span class="text-bronze text-sm font-bold">4</span>
+                    </div>
+                    <p class="text-charcoal/60 text-xs">冷鲜配送</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 检测报告 Section -->
+    <section class="py-24 px-8 bg-cream">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bronze/60 text-xs tracking-widest uppercase mb-3">Quality Certification</p>
+                <h2 class="font-display text-3xl font-bold text-charcoal mb-4">权威检测报告</h2>
+                <div class="section-divider mx-auto"></div>
+                <p class="text-charcoal/50 text-sm mt-4">每一批次产品均经国家认可检测机构严格检验</p>
+            </div>
+
+            <!-- 报告卡片 -->
+            <div class="space-y-6">
+
+                <!-- 猪肉药物残留检测 -->
+                <div class="report-card rounded-2xl overflow-hidden luxury-card">
+                    <!-- 报告图片 -->
+                    <div class="p-4 border-b border-slate-200">
+                        <img src="images/猪肉药物残留检测报告.png" alt="猪肉药物残留检测报告" class="w-full rounded-xl">
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">🥩</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-semibold text-charcoal mb-1">猪肉药物残留检测报告</h4>
+                                <p class="text-charcoal/40 text-xs">国家肉类食品质量检验检测中心</p>
+                            </div>
+                            <div class="check-badge px-3 py-1 rounded-full">
+                                <span class="text-white text-xs font-medium flex items-center gap-1">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    合格
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">四环素类</p>
+                            </div>
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">氯霉素</p>
+                            </div>
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">磺胺类</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 猪肝药物残留检测 -->
+                <div class="report-card rounded-2xl overflow-hidden luxury-card">
+                    <!-- 报告图片 -->
+                    <div class="p-4 border-b border-amber-100">
+                        <img src="images/猪肝药物残留检测报告.png" alt="猪肝药物残留检测报告" class="w-full rounded-xl">
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">🫀</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-semibold text-charcoal mb-1">猪肝药物残留检测报告</h4>
+                                <p class="text-charcoal/40 text-xs">谱尼测试集团股份有限公司</p>
+                            </div>
+                            <div class="check-badge px-3 py-1 rounded-full">
+                                <span class="text-white text-xs font-medium flex items-center gap-1">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    合格
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">重金属</p>
+                            </div>
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">瘦肉精</p>
+                            </div>
+                            <div class="bg-sage/5 rounded-lg p-3 text-center">
+                                <p class="text-sage font-semibold text-sm">未检出</p>
+                                <p class="text-charcoal/40 text-xs">激素</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 猪肉营养检测 -->
+                <div class="report-card rounded-2xl overflow-hidden luxury-card">
+                    <!-- 报告图片 -->
+                    <div class="p-4 border-b border-emerald-100">
+                        <img src="images/猪肉营养检测报告.png" alt="猪肉营养检测报告" class="w-full rounded-xl">
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-bronze/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">🔬</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-semibold text-charcoal mb-1">猪肉营养检测报告</h4>
+                                <p class="text-charcoal/40 text-xs">中国农业科学院北京畜牧兽医研究所</p>
+                            </div>
+                            <div class="bg-bronze/10 px-3 py-1 rounded-full">
+                                <span class="text-bronze text-xs font-medium">优等</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4 gap-3">
+                            <div class="bg-bronze/5 rounded-lg p-3 text-center">
+                                <p class="font-display text-xl font-bold text-bronze">18.8g</p>
+                                <p class="text-charcoal/40 text-xs">蛋白质</p>
+                            </div>
+                            <div class="bg-bronze/5 rounded-lg p-3 text-center">
+                                <p class="font-display text-xl font-bold text-bronze">6.5g</p>
+                                <p class="text-charcoal/40 text-xs">脂肪</p>
+                            </div>
+                            <div class="bg-bronze/5 rounded-lg p-3 text-center">
+                                <p class="font-display text-xl font-bold text-bronze">↓14%</p>
+                                <p class="text-charcoal/40 text-xs">胆固醇</p>
+                            </div>
+                            <div class="bg-bronze/5 rounded-lg p-3 text-center">
+                                <p class="font-display text-xl font-bold text-bronze">↓70%</p>
+                                <p class="text-charcoal/40 text-xs">嘌呤</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-charcoal/30 text-xs mt-8">* 报告编号可于对应检测机构官网查询验证 · 数据来源均为国家认可第三方检测机构</p>
+        </div>
+    </section>
+
+    <!-- 产品展示 Section -->
+    <section class="py-24 px-8 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute inset-0 tech-grid"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-bronze/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-lg mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-bronze/40 text-xs tracking-widest uppercase mb-3">Premium Product</p>
+                <h2 class="font-display text-3xl font-bold mb-4">冷鲜排酸</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="relative mb-10">
+                <div class="grid grid-cols-2 gap-3">
+                    <img src="images/猪肉2.png" alt="优质猪肉" class="rounded-2xl w-full h-48 object-contain">
+                    <img src="images/猪肉3.png" alt="优质猪肉" class="rounded-2xl w-full h-48 object-contain">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal to-transparent rounded-b-3xl">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-bronze/20 backdrop-blur-sm rounded-full px-4 py-2">
+                            <span class="text-bronze text-sm font-medium">0℃~4℃ 冷鲜</span>
+                        </div>
+                        <div class="bg-sage/20 backdrop-blur-sm rounded-full px-4 py-2">
+                            <span class="text-sage text-sm font-medium">零抗生素</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-10">
+                <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <p class="text-bronze/60 text-xs mb-2">产地</p>
+                    <p class="text-white font-medium">重庆万州 · 铁峰山</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <p class="text-bronze/60 text-xs mb-2">养殖方式</p>
+                    <p class="text-white font-medium">300天生态慢养</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <p class="text-bronze/60 text-xs mb-2">饲养饲料</p>
+                    <p class="text-white font-medium">食叶草 + 谷物</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <p class="text-bronze/60 text-xs mb-2">加工方式</p>
+                    <p class="text-white font-medium">16小时排酸冷鲜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品质对比 Section -->
+    <section class="py-24 px-8 bg-ivory">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bronze/60 text-xs tracking-widest uppercase mb-3">Quality Comparison</p>
+                <h2 class="font-display text-3xl font-bold text-charcoal mb-4">品质的跨越</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-charcoal/5 border border-bronze/10">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-charcoal">
+                            <th class="text-left py-5 px-6 text-white text-sm font-display font-normal">检测项目</th>
+                            <th class="text-center py-5 px-4 text-bronze text-sm">食叶草肽猪</th>
+                            <th class="text-center py-5 px-4 text-white/40 text-sm">普通猪肉</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-bronze/5">
+                        <tr class="bg-sage/5">
+                            <td class="py-4 px-6 text-charcoal/70 text-sm font-medium">抗生素残留</td>
+                            <td class="text-center py-4 px-4"><span class="text-sage font-semibold text-sm">未检出 ✓</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">常见检出</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 text-charcoal/70 text-sm">生长激素</td>
+                            <td class="text-center py-4 px-4"><span class="text-sage font-semibold text-sm">未检出 ✓</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">常见检出</td>
+                        </tr>
+                        <tr class="bg-sage/5">
+                            <td class="py-4 px-6 text-charcoal/70 text-sm font-medium">蛋白质含量</td>
+                            <td class="text-center py-4 px-4"><span class="text-bronze font-semibold text-sm">18.8g/100g ↑</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">约14g/100g</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 text-charcoal/70 text-sm">脂肪含量</td>
+                            <td class="text-center py-4 px-4"><span class="text-bronze font-semibold text-sm">6.5g/100g ↓</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">约15g/100g</td>
+                        </tr>
+                        <tr class="bg-sage/5">
+                            <td class="py-4 px-6 text-charcoal/70 text-sm font-medium">胆固醇</td>
+                            <td class="text-center py-4 px-4"><span class="text-bronze font-semibold text-sm">↓ 降低14%</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">基准值</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 text-charcoal/70 text-sm">嘌呤含量</td>
+                            <td class="text-center py-4 px-4"><span class="text-bronze font-semibold text-sm">↓ 减少70%</span></td>
+                            <td class="text-center py-4 px-4 text-charcoal/40 text-sm">基准值</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 养殖环境 Section -->
+    <section class="py-24 px-8 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute inset-0 tech-grid"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-bronze/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-lg mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <p class="text-bronze/40 text-xs tracking-widest uppercase mb-3">Breeding Environment</p>
+                <h2 class="font-display text-3xl font-bold mb-4">铁峰山养殖基地</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="mb-8 pt-4">
+                <img src="images/养殖基地.png" alt="铁峰山养殖基地" class="rounded-2xl w-full" style="object-fit: contain; max-height: 320px;">
+            </div>
+
+            <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0">
+                        <span class="text-bronze text-sm">🏔️</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-semibold text-lg mb-1">铁峰山国家公园</h3>
+                        <p class="text-white/50 text-sm">海拔850米，森林覆盖率95%，亚热带季风气候，四季分明</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0">
+                        <span class="text-bronze text-sm">🌱</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-semibold text-lg mb-1">100亩食叶草种植基地</h3>
+                        <p class="text-white/50 text-sm">生态自循环，食叶草喂养，0抗生素，0激素</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0">
+                        <span class="text-bronze text-sm">❄️</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-semibold text-lg mb-1">16小时冷鲜排酸</h3>
+                        <p class="text-white/50 text-sm">0℃~4℃低温排酸16-24小时，真空冷鲜包装</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mt-10">
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">1000</p>
+                    <p class="text-white/40 text-xs mt-2">年出栏(头)</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">100</p>
+                    <p class="text-white/40 text-xs mt-2">食叶草(亩)</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                    <p class="font-display text-2xl font-bold gold-text">95%</p>
+                    <p class="text-white/40 text-xs mt-2">森林覆盖</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订购 Section -->
+    <section class="py-24 px-8 bg-ivory">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bronze/60 text-xs tracking-widest uppercase mb-3">Order</p>
+                <h2 class="font-display text-3xl font-bold text-charcoal mb-4">定制您的专属年猪</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-bronze/10 mb-8">
+                <div class="grid grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="w-10 h-10 mx-auto mb-3 bg-bronze/10 rounded-full flex items-center justify-center">
+                            <span class="text-bronze font-display font-bold">1</span>
+                        </div>
+                        <p class="text-charcoal/70 text-xs">确认订购</p>
+                    </div>
+                    <div>
+                        <div class="w-10 h-10 mx-auto mb-3 bg-bronze/10 rounded-full flex items-center justify-center">
+                            <span class="text-bronze font-display font-bold">2</span>
+                        </div>
+                        <p class="text-charcoal/70 text-xs">签订合同</p>
+                    </div>
+                    <div>
+                        <div class="w-10 h-10 mx-auto mb-3 bg-bronze/10 rounded-full flex items-center justify-center">
+                            <span class="text-bronze font-display font-bold">3</span>
+                        </div>
+                        <p class="text-charcoal/70 text-xs">全程溯源</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-charcoal rounded-2xl p-6 text-center luxury-card">
+                    <span class="text-3xl mb-3 block">🐷</span>
+                    <h4 class="text-white font-display font-semibold mb-1">年猪定制</h4>
+                    <p class="text-white/40 text-xs">杀猪宴 · 团圆饭</p>
+                </div>
+                <div class="bg-charcoal rounded-2xl p-6 text-center luxury-card">
+                    <span class="text-3xl mb-3 block">🎁</span>
+                    <h4 class="text-white font-display font-semibold mb-1">高端礼赠</h4>
+                    <p class="text-white/40 text-xs">商务往来 · 员工福利</p>
+                </div>
+                <div class="bg-charcoal rounded-2xl p-6 text-center luxury-card">
+                    <span class="text-3xl mb-3 block">👥</span>
+                    <h4 class="text-white font-display font-semibold mb-1">团购拼养</h4>
+                    <p class="text-white/40 text-xs">社群拼购 · 共享收益</p>
+                </div>
+                <div class="bg-charcoal rounded-2xl p-6 text-center luxury-card">
+                    <span class="text-3xl mb-3 block">🏛️</span>
+                    <h4 class="text-white font-display font-semibold mb-1">企业专供</h4>
+                    <p class="text-white/40 text-xs">品质保障 · 批量供应</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-8 bg-gradient-to-b from-charcoal to-charcoal/95">
+        <div class="max-w-lg mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bronze/40 text-xs tracking-widest uppercase mb-3">Contact</p>
+                <h2 class="font-display text-3xl font-bold text-white mb-4">开启您的尊贵体验</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="bg-ivory rounded-3xl p-8 text-center">
+                <!-- 二维码占位 -->
+                <div class="mb-8">
+                    <div class="w-48 h-48 mx-auto bg-charcoal/5 rounded-2xl flex items-center justify-center border-2 border-dashed border-bronze/20 overflow-hidden">
+                        <!-- 替换为真实二维码: <img src="images/qrcode.png" class="w-full h-full object-contain p-2"> -->
+                        <span class="text-4xl">📱</span>
+                    </div>
+                    <p class="text-bronze text-sm mt-4 font-medium">长按识别二维码添加顾问</p>
+                </div>
+
+                <div class="mb-8">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-bronze to-bronzeLight rounded-full flex items-center justify-center">
+                        <span class="text-charcoal text-2xl font-display font-bold">米</span>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-charcoal mb-1">米姐</h3>
+                    <p class="text-charcoal/50 text-sm">专属顾问</p>
+                </div>
+
+                <a href="tel:19558132249" class="inline-flex items-center gap-3 bg-charcoal text-white font-semibold px-8 py-4 rounded-full hover:bg-charcoal/90 transition-colors mb-6">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    19558132249
+                </a>
+
+                <p class="text-charcoal/40 text-xs">工作时间：9:00 - 21:00</p>
+            </div>
+
+            <div class="text-center mt-10">
+                <p class="text-bronze/60 text-sm mb-2">技术持有</p>
+                <p class="text-white/50 text-sm">重庆朴素农业科技有限公司</p>
+                <p class="text-white/30 text-xs mt-4">中国科学院技术支撑 · 绿色循环生态种养</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-black text-center">
+        <p class="text-white/30 text-xs">© 2026 食叶草肽猪 · 中科院技术 · 高端生态猪肉</p>
+    </footer>
+
+    <!-- Float Action Button -->
+    <a href="tel:19558132249" class="float-btn fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-bronze to-bronzeLight rounded-full flex items-center justify-center shadow-lg safe-bottom">
+        <svg class="w-6 h-6 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+    </a>
+
+    <script>
+        // 创建粒子
+        const particlesContainer = document.getElementById('particles');
+        if (particlesContainer) {
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
